@@ -11,6 +11,8 @@ node {
     }
     stage('PULL Docker image from DockerHub'){
         powershell label: '', script: 'docker pull arjundockerreddy/demo-repository:web1.1.0'
-        withDockerContainer('web1.1.0')
+    }
+    stage('RUN Docker Container with the Image'){
+        powershell label: '', script: 'docker container run -it arjundockerreddy/demo-repository:web1.1.0'
     }
 }
