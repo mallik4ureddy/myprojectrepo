@@ -9,9 +9,6 @@ node {
         powershell label: '', script: 'docker login -u="arjundockerreddy" -p="docker123"'
         powershell label: '', script: 'docker push arjundockerreddy/demo-repository:web1.1.0'
     }
-    stage('PULL Docker image from DockerHub'){
-        powershell label: '', script: 'docker pull arjundockerreddy/demo-repository:web1.1.0'
-    }
     stage('RUN Docker image inside a container') {
      def myTestContainer = docker.image('arjundockerreddy/demo-repository:web1.1.0')
      myTestContainer.pull()
