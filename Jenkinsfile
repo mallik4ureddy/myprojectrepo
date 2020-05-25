@@ -18,8 +18,5 @@ node {
     stage('RUN Docker image inside a container') {
      def myTestContainer = docker.image('arjundockerreddy/demo-repository:web1.1.0')
      myTestContainer.pull()
-     myTestContainer.inside {
-       sh 'npm test'
-     }
-   }
+    }
 }
