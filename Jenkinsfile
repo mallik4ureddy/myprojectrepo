@@ -15,4 +15,11 @@ node {
     stage('RUN Docker Container with the Image'){
         powershell label: '', script: 'docker container run -it arjundockerreddy/demo-repository:web1.1.0'
     }
+    stage('RUN Docker image inside a container') {
+     def myTestContainer = docker.image('arjundockerreddy/demo-repository:web1.1.0')
+     myTestContainer.pull()
+     myTestContainer.inside {
+       sh 'npm test'
+     }
+   }
 }
