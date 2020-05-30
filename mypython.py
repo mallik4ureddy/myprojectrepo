@@ -1,7 +1,7 @@
 import textwrap
 import re
 mystring = 'This is a sample text but a complicated problem to be solved, so we are adding more text to see that it actually works.'
-page_wrap_by = 23
+page_wrap_by = 30
 mylist = textwrap.wrap(mystring,page_wrap_by)
 
 def string_count(input_list):
